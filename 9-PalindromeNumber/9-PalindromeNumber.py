@@ -1,14 +1,7 @@
-# Last updated: 11/30/2025, 3:39:41 PM
-class Solution(object):
-    def isPalindrome(self, x):
-        """
-        :type x: int
-        :rtype: bool
-        """
-        strnum = str(x)
-        rev = strnum[::-1]
-    
-        if strnum == rev:
-            return True
-        else:
-            return False
+# Last updated: 12/2/2025, 1:54:36 PM
+1class Solution:
+2    def isPalindrome(self, x: int) -> bool:
+3        strx = str(x)
+4        strrev = strx[::-1]
+5
+6        return strx == strrev
