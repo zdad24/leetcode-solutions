@@ -1,21 +1,10 @@
-# Last updated: 11/30/2025, 3:39:42 PM
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-
-        result = []
-
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if (nums[i] + nums[j] == target):
-                    result.append(i)
-                    result.append(j)
-                    return result
-        return result
-
-            
-        
+# Last updated: 12/20/2025, 5:36:34 PM
+1class Solution:
+2    def twoSum(self, nums: List[int], target: int) -> List[int]:
+3        
+4        for i in range(len(nums)):
+5            for j in range(i+1, len(nums)):
+6                if (nums[i] + nums[j] == target):
+7                    return [i, j]
+8
+9       
