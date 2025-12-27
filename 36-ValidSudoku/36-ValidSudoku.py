@@ -1,52 +1,41 @@
-# Last updated: 12/12/2025, 4:38:02 PM
+# Last updated: 12/27/2025, 9:00:42 AM
 1class Solution:
 2    def isValidSudoku(self, board: List[List[str]]) -> bool:
-3
-4        # check rows for duplicates
+3        
+4        #check rows
 5        for i in range(9):
-6            rowseen = set()
+6            seen = set()
 7            for j in range(9):
-8                num = board[i][j]
-9                if num == ".":
-10                    continue
-11                elif num in rowseen:
-12                    return False
-13                else:
-14                    rowseen.add(num)
-15
-16        # check columns for duplicates
-17        for i in range(9):
-18            columnseen = set()
-19            for j in range(9):
-20                num = board[j][i]
-21                if num == ".":
+8                if board[i][j] in seen:
+9                    return False
+10                elif board[i][j] == ".":
+11                    continue
+12                else:
+13                    seen.add(board[i][j])
+14
+15        #check columns
+16        for i in range(9):
+17            seen = set()
+18            for j in range(9):
+19                if board[j][i] in seen:
+20                    return False
+21                elif board[j][i] == ".":
 22                    continue
-23                elif num in columnseen:
-24                    return False
-25                else:
-26                    columnseen.add(num)
-27
-28        # check 3x3
-29        rows = 0
-30
-31        for x in range(9):
-32            block_row = x // 3  # Try this!
-33            block_col = x % 3   # And this!
-34    
-35            rows = block_row * 3
-36            columns = block_col * 3
-37
-38            blockseen = set()
-39            for i in range(rows, rows + 3):
-40                for j in range(columns, columns + 3):
-41                    num = board[i][j]
-42                    if num == ".":
-43                        continue
-44                    elif num in blockseen:
-45                        return False
-46                    else:
-47                        blockseen.add(num)
-48
-49        # valid sudoku
-50        return True
-51
+23                else:
+24                    seen.add(board[j][i])
+25
+26        #check 3x3
+27        for k in range(9):
+28            l =(k % 3)*3
+29            r = (k // 3)*3
+30            seen = set()
+31            
+32            for i in range(r, r+3):
+33                for j in range(l, l+3):
+34                    if board[i][j] in seen:
+35                        return False
+36                    elif board[i][j] == ".":
+37                        continue
+38                    else:
+39                        seen.add(board[i][j])
+40        return True
